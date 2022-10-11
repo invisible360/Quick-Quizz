@@ -29,7 +29,10 @@ function App() {
         },
         {
           path: 'statistics',
-          element: <Statistics />
+          element: <Statistics />,
+          loader: async () => {
+            return fetch ('https://openapi.programming-hero.com/api/quiz')
+          }
         },
         {
           path: 'qa',
