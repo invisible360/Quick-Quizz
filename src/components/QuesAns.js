@@ -1,30 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal';
 
 const QuesAns = () => {
+    const [state, setState] = useState(undefined);
 
     const quesAnss = [
-        { id: 1, ques: 'What is the purpose of React Router?', ans: 'sadfdsf' },
-        { id: 2, ques: 'How does context API works?', ans: 'sdfdsaf' },
-        { id: 3, ques: 'Write about useRef () Hook?', ans: 'sdfsdf' },
+        { id: 1, ques: 'What is the purpose of React Router?', ans: "ReactJS Router is mainly used for developing Single Page Web Applications. React Router is used to define multiple routes in the application. When a user types a specific URL into the browser, and if this URL path matches any 'route' inside the router file, the user will be redirected to that particular route" },
+        { id: 2, ques: 'How does context API works?', ans: 'The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on.' },
+        { id: 3, ques: 'Write about useRef () Hook?', ans: 'The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated. It can be used to access a DOM element directly.' },
     ];
-
-    const openModal = (id) => {
-        console.log('modal open', id);
-    }
 
     return (
         <div>
 
-            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                    <div className="modal-action">
-                        <label htmlFor="my-modal-6" className="btn">Got Answer</label>
-                    </div>
-                </div>
-            </div>
+            {
+                state === 1 ? <Modal id={quesAnss[0].id} ques={quesAnss[0].ques} ans={quesAnss[0].ans} /> : undefined
+            }
+            {
+                state === 2 ? <Modal id={quesAnss[1].id} ques={quesAnss[1].ques} ans={quesAnss[1].ans} /> : undefined
+            }
+            {
+                state === 3 ? <Modal id={quesAnss[2].id} ques={quesAnss[2].ques} ans={quesAnss[2].ans} /> : undefined
+            }
+            {/* <p>{state}</p> */}
+
 
             {/* for mobile device */}
             <div className="lg:hidden overflow-x-auto my-10 mx-auto w-[90%]">
@@ -45,7 +44,7 @@ const QuesAns = () => {
                                         <p>{qa.ques}</p>
 
                                         <div className='my-2'>
-                                            <label htmlFor="my-modal-6" className="text-white btn modal-button btn-warning
+                                            <label onClick={() => setState(qa.id)} htmlFor="my-modal-6" className="text-white btn modal-button btn-warning
                                     ">Answer</label>
                                         </div>
                                     </td>
@@ -76,7 +75,7 @@ const QuesAns = () => {
                                     <th>Q{qa.id}.</th>
                                     <td>{qa.ques}</td>
                                     <td className='text-right'>
-                                        <label onClick={() => openModal(qa.id)} htmlFor="my-modal-6" className="btn modal-button btn-warning text-white">Answer</label>
+                                        <label onClick={() => setState(qa.id)} htmlFor="my-modal-6" className="btn modal-button btn-warning text-white">Answer</label>
                                     </td>
                                 </tr>)
                         }
