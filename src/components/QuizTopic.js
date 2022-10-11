@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const QuizTopic = ({ topic }) => {
     // console.log(topic);
     const { name, logo, total: totalQuestion, id } = topic;
+
+    const navigate = useNavigate ();
+    const quizHandlerNavigate = () => {
+        navigate (`/quiz/${id}`);
+    }
+
     return (
         <div>
             <main className=''>
@@ -12,7 +19,7 @@ const QuizTopic = ({ topic }) => {
                         <h2 className="card-title text-3xl">{name}</h2>
                         <p className='my-2'>Number of Questions: {totalQuestion} </p>
                         <div className="card-actions justify-center">
-                            <button className="btn btn-info">Start Quiz</button>
+                            <button onClick={quizHandlerNavigate} className="btn btn-info">Start Quiz</button>
                         </div>
                     </div>
                 </div>
