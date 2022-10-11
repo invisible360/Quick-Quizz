@@ -2,7 +2,7 @@
 
 Repository Link: [Private Repo Link](https://github.com/programming-hero-web-course2/b6-quiz-crackerz-invisible360).
 
-Live Link: [Netlify Live Link]().
+Live Link: [Netlify Live Link](https://silly-dusk-3fa530.netlify.app/).
 
 ## Description
 
@@ -18,6 +18,6 @@ This is a Simple SPA where you may find different Topics. A lot of questions are
 -> Toast\
 -> Conditional rendering\
 -> 404 Not found route\
--> dynamic routing\
+-> dynamic routing
 
 ### `Data is loaded from PH openAPI`
