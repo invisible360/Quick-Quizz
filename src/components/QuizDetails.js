@@ -12,18 +12,18 @@ const QuizDetails = () => {
     console.log(data);
     let count = 0;
 
-    const correctAns = (correctA) => {
-        toast(`Correct Answer: ${correctA}`);
+    const correctAns = (correctA, count) => {
+        toast(`Answer of Question-${count} : ${correctA}`);
     }
 
-    const correctOrWrng = (optionCheck) => {
+    const correctOrWrng = (optionCheck, count) => {
         const corOp = questions.filter(crra => crra.correctAnswer === optionCheck);
         if (corOp.length === 0) {
-            toast(`Wrong!!!`);
+            toast(`Question:-${count}: Wrong Option!!!`);
         }
 
         else {
-            toast(`Correct!!!`);
+            toast(`Question:-${count}: Correct Option!!!`);
         }
 
     }
